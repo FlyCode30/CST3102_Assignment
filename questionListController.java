@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import testApp.MxQuestion;
+import testApp.MyQuestionsCollection;
+import testApp.Questions;
 
 import java.awt.Button;
 import java.io.IOException;
@@ -14,23 +16,28 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class questionListController extends Application {
 
-
+	private MyQuestionsCollection myQuestions;
 	@FXML
-	private ListView<String> questionList;
-
+	private TableView<Questions> questionList;
+	@FXML
+	TableColumn<Questions, String> courseColumn = new TableColumn<>("Course");
+	@FXML
+	TableColumn<Questions, String> questionColumn = new TableColumn<>("Question");
 	@FXML
 	private Scene scene;
 	@FXML
-	MxQuestion question = new MxQuestion(null, "What is 2+2?", "2", false, "4", true, "6", false, "8", false);
+	private Button viewCourses;
 	@FXML
 	private Button addQuestion;
-
+	@FXML
+	private Button addCourse;
 	
-	// this event will load the questionPage.fxml
-
 
 	@Override
 	public void start(Stage homeStage) {
@@ -60,7 +67,15 @@ public class questionListController extends Application {
 	// Initialize the list of questions. Add a toString of question
 	@FXML
 	public void initialize() {
-		questionList.getItems().add(0, (question.toString()));
+		// iniitialize 
+		myQuestions = Main.getMyQuestions();
+		
+		questionList.setItems(myQuestions.getQuestions());
+		
+		// course name column
+		courseColumn.setCellValueFactory(new PropertyValueFactory<>("courseInfo"));
+		// program name column
+		questionColumn.setCellValueFactory(new PropertyValueFactory<>("body"));
 	}
 	
 	

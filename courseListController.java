@@ -4,9 +4,6 @@ import java.io.IOException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,19 +19,15 @@ public class courseListController {
 	@FXML
 	private TableView<CourseInfo> courseTable;
 	@FXML
-	TableColumn<CourseInfo, String> courseNameColumn = new TableColumn<>("Course Name");
+	private TableColumn<CourseInfo, String> courseNameColumn = new TableColumn<>("Course Name");
 	@FXML
-	TableColumn<CourseInfo, String> programNameColumn = new TableColumn<>("Program Name");
+	private TableColumn<CourseInfo, String> programNameColumn = new TableColumn<>("Program Name");
 	@FXML
-	TableColumn<CourseInfo, Integer> programYearColumn = new TableColumn<>("Program Year");
+	private TableColumn<CourseInfo, Integer> programYearColumn = new TableColumn<>("Program Year");
 	@FXML
-	TableColumn<CourseInfo, String> programSemesterColumn = new TableColumn<>("Program Semester");
+	private TableColumn<CourseInfo, String> programSemesterColumn = new TableColumn<>("Program Semester");
 	
 	private TableListCourseInfo courseList;
-
-	
-	
-	
 	
     // this method will load the courseList.fxml
 	@FXML
@@ -82,6 +75,4 @@ public class courseListController {
 
 	}
 	
-
-
 }

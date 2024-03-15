@@ -3,22 +3,22 @@ package testApp;
 
 public abstract class Questions {
 	
-	protected CourseInfo courseInfo;
+	protected String courseInfo;
 	protected String body;
 
 	// this constructor is the template for the questions
-	public Questions (CourseInfo courseInfo, String body) {
+	public Questions (String courseInfo, String body) {
 		this.courseInfo = courseInfo;
 		this.body = body;
 	}
-
+	
 	// this method is used to get the course information
-	public CourseInfo getCourseInfo() {
+	public String getCourseInfo() {
 		return courseInfo;
 	}
 
 	// this method is used to set the course information
-	public void setCourseInfo(CourseInfo courseInfo) {
+	public void setCourseInfo(String courseInfo) {
 		this.courseInfo = courseInfo;
 	}
 

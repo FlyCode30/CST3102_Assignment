@@ -6,7 +6,7 @@ public class ShortQuestion extends Questions{
 	protected String answerA;
 	
 	// this is the constructor for the ShortQuestions class. It consists of answer A but no options
-	public ShortQuestion(CourseInfo courseInfo, String body, String answerA) {
+	public ShortQuestion(String courseInfo, String body, String answerA) {
 		super(courseInfo, body);
 		this.answerA = answerA;
 	}

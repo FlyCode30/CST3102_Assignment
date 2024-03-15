@@ -12,7 +12,7 @@ public class MxQuestion extends Questions {
 	protected Boolean answerD;
 
 	// this is the constructor for the MxQuestions class. It adds on options B, C, and D to the questions and answers A, B, C, and D.
-	public MxQuestion(CourseInfo courseInfo, String body, String optionA, Boolean answerA, String optionB,
+	public MxQuestion(String courseInfo, String body, String optionA, Boolean answerA, String optionB,
 			Boolean answerB, String optionC, Boolean answerC, String optionD, Boolean answerD) {
 		super(courseInfo, body);
 		this.optionA = optionA;

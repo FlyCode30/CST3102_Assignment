@@ -14,12 +14,14 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import testApp.MyQuestionsCollection;
+import testApp.Questions;
 import testApp.TableListCourseInfo;
+
 
 
 public class Main extends javafx.application.Application{
@@ -35,6 +37,7 @@ public class Main extends javafx.application.Application{
 	@FXML
 	private Button quizPage;
 	private static final TableListCourseInfo courseList = new TableListCourseInfo();
+	private static final MyQuestionsCollection myQuestions = new MyQuestionsCollection();
 	
 	public void start(Stage stage) {
 	    try {
@@ -50,6 +53,10 @@ public class Main extends javafx.application.Application{
 	
 	public static TableListCourseInfo getCourseList() {
 		return courseList;
+	}
+	
+	public static MyQuestionsCollection getMyQuestions() {
+		return myQuestions;
 	}
 	
 	/*
@@ -80,4 +87,5 @@ public class Main extends javafx.application.Application{
 			e.printStackTrace();
 		}
 	}
+
 }

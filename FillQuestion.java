@@ -9,7 +9,7 @@ public class FillQuestion extends Questions{
 	protected String answerD;
 	
 	// this is the constructor for the FillQuestions class. it consists of answers A, B, C, and D but no options
-	public FillQuestion(CourseInfo courseInfo, String body, String answerA, String answerB, String answerC,
+	public FillQuestion(String courseInfo, String body, String answerA, String answerB, String answerC,
 			String answerD) {
 		super(courseInfo, body);
 		this.answerA = answerA;

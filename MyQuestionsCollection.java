@@ -1,49 +1,46 @@
 package testApp;
-import java.util.LinkedList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 
-@SuppressWarnings("hiding")
 
-public class MyQuestionsCollection<Questions> {
+public class MyQuestionsCollection {
 
-	public LinkedList<Questions> elements;
+	public ObservableList<Questions> questionsList;
+	
 	
 	public MyQuestionsCollection() {
-		elements = new LinkedList<>();
+		questionsList = FXCollections.observableArrayList();
 	}
 	
-	public MyQuestionsCollection(Questions questions) {
-		elements = new LinkedList<>();
+	public ObservableList<Questions> getQuestions() {
+		return questionsList;
 	}
 	
-	public void add(Questions questions) {
-		elements.add(questions);
+	public void addQuestion(Questions question) {
+		questionsList.add(question);
 	}
 	
-	public void remove(int index) {
-		elements.remove(index);
+	public void removeQuestion(Questions question) {
+		questionsList.remove(question);
 	}
 	
-	public boolean contains(Questions questions) {
-		return elements.contains(questions);
+	public void clearList() {
+		questionsList.clear();
 	}
 	
 	public int size() {
-		return elements.size();
+		return questionsList.size();
 	}
 	
-	public String toString() {
-		return elements.toString();
+	public Questions getQuestion(int index) {
+		return questionsList.get(index);
 	}
 	
-	public void clear() {
-		elements.clear();
+	public void setQuestion(int index, Questions question) {
+		questionsList.set(index, question);
 	}
-	
-	public Questions get(int index) {
-		return elements.get(index);
-	}
-	
+
 }
 	
 

@@ -2,13 +2,13 @@ package testApp;
 
 public class TorFQuestion extends Questions{
 	
-	protected final String optionA = "True";
+	protected  String optionA;
 	protected Boolean answerA;
-	protected final String optionB = "False";
+	protected  String optionB;
 	protected Boolean answerB;
 	
 	// this is the constructor for the TorFQuestions class. It adds on options B to the questions
-	public TorFQuestion(CourseInfo courseInfo, String body, String optionA, Boolean answerA, String optionB,
+	public TorFQuestion(String courseInfo, String body, String optionA, Boolean answerA, String optionB,
 			Boolean answerB) {
 		super(courseInfo, body);
 		this.answerA = answerA;
