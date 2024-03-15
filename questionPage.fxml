@@ -25,52 +25,6 @@
       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <TextField fx:id="question" onAction="#addQuestion" prefHeight="226.0" prefWidth="1500.0" GridPane.rowIndex="2">
-         <GridPane.margin>
-            <Insets left="30.0" right="30.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="optionB" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="4">
-         <GridPane.margin>
-            <Insets left="120.0" right="30.0" />
-         </GridPane.margin>
-      </TextField>
-      <Label text="Course Info" GridPane.rowIndex="1">
-         <font>
-            <Font size="20.0" />
-         </font>
-         <GridPane.margin>
-            <Insets left="30.0" />
-         </GridPane.margin>
-      </Label>
-      <ComboBox fx:id="courseList" prefWidth="150.0" GridPane.rowIndex="1">
-         <padding>
-            <Insets left="100.0" />
-         </padding>
-         <GridPane.margin>
-            <Insets left="150.0" />
-         </GridPane.margin>
-      </ComboBox>
-      <TextField fx:id="optionA" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="3">
-         <GridPane.margin>
-            <Insets left="120.0" right="30.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="optionC" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="5">
-         <GridPane.margin>
-            <Insets left="120.0" right="30.0" />
-         </GridPane.margin>
-      </TextField>
-      <TextField fx:id="optionD" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="6">
-         <GridPane.margin>
-            <Insets left="120.0" right="30.0" />
-         </GridPane.margin>
-      </TextField>
-      <Label text="Add a Question" GridPane.halignment="CENTER">
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Label>
       <Button fx:id="addQuestionButton" mnemonicParsing="false" onAction="#addQuestion" text="Add Question" textFill="#2f971f" GridPane.halignment="RIGHT">
          <GridPane.margin>
             <Insets right="30.0" />
@@ -87,14 +41,14 @@
             <Insets left="30.0" />
          </GridPane.margin>
       </Button>
-      <Label layoutX="40.0" layoutY="95.0" text="Question Type" GridPane.rowIndex="1">
-         <font>
-            <Font size="20.0" />
-         </font>
+      <ComboBox fx:id="courseList" prefWidth="150.0" GridPane.rowIndex="1">
+         <padding>
+            <Insets left="100.0" />
+         </padding>
          <GridPane.margin>
-            <Insets left="350.0" />
+            <Insets left="150.0" />
          </GridPane.margin>
-      </Label>
+      </ComboBox>
       <ComboBox fx:id="questionType" layoutX="160.0" layoutY="98.0" prefWidth="150.0" GridPane.rowIndex="1">
          <padding>
             <Insets left="100.0" />
@@ -103,6 +57,31 @@
             <Insets left="500.0" />
          </GridPane.margin>
       </ComboBox>
+      <TextField fx:id="question" onAction="#addQuestion" prefHeight="226.0" prefWidth="1500.0" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="30.0" right="30.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="optionA" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="3">
+         <GridPane.margin>
+            <Insets left="120.0" right="30.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="optionB" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="4">
+         <GridPane.margin>
+            <Insets left="120.0" right="30.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="optionC" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="5">
+         <GridPane.margin>
+            <Insets left="120.0" right="30.0" />
+         </GridPane.margin>
+      </TextField>
+      <TextField fx:id="optionD" maxHeight="-Infinity" prefHeight="70.0" GridPane.rowIndex="6">
+         <GridPane.margin>
+            <Insets left="120.0" right="30.0" />
+         </GridPane.margin>
+      </TextField>
       <CheckBox fx:id="answerA" mnemonicParsing="false" text="A" GridPane.rowIndex="3">
          <GridPane.margin>
             <Insets left="30.0" />
@@ -135,5 +114,26 @@
             <Insets left="30.0" />
          </GridPane.margin>
       </CheckBox>
+      <Label disable="true" focusTraversable="false" text="Course Info" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="30.0" />
+         </GridPane.margin>
+      </Label>
+      <Label text="Add a Question" GridPane.halignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label focusTraversable="false" layoutX="40.0" layoutY="95.0" text="Question Type" GridPane.rowIndex="1">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <GridPane.margin>
+            <Insets left="350.0" />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>

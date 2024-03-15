@@ -107,7 +107,7 @@ public class MxQuestion extends Questions {
 	
 	@Override
 	public String toString() {
-		return super.toString();
+		return super.toString() + "A) " + getOptionA() + "\n" + "B) " + getOptionB() + "\n" + "C) " + getOptionC() + "\n" + "B) " + getOptionD() + "\n" + "The correct answer is: " + getCorrectAnswer();
 	}
 	
 	private void validateAnswers()	{
@@ -123,7 +123,20 @@ public class MxQuestion extends Questions {
 		} else if (trueCount == 0) {
 			System.out.println("Error: Please choose at least one correct answer");
 		} else if (trueCount == 1) { }
-		
+	}
+	
+	public String getCorrectAnswer() {
+		if (answerA == true) {
+			return optionA;
+		} else if (answerB == true) {
+			return optionB;
+		} else if (answerC == true) {
+			return optionC;
+		} else if (answerD == true) {
+			return optionD;
+		} else {
+            return "Error: No correct answer was chosen";
+        }
 	}
 	
 	

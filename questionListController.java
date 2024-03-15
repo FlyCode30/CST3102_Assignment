@@ -67,6 +67,11 @@ public class questionListController extends Application {
 	// Initialize the list of questions. Add a toString of question
 	@FXML
 	public void initialize() {
+		
+		Main.getCourseList().setDefault();
+		Main.getCourseList();
+		
+		
 		// iniitialize 
 		myQuestions = Main.getMyQuestions();
 		

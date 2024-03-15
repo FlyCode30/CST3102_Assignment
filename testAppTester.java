@@ -27,6 +27,9 @@ public class testAppTester {
 		myQuestions.addQuestion(mx);
 
 		// print the questions in the myQuestions object
-		System.out.println(myQuestions.getQuestions());
+		//System.out.println(myQuestions.getQuestions());
+		
+		// testing toString for MxQuestion
+		System.out.println(mx.toString());
 	}
 }

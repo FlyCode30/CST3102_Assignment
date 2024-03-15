@@ -72,7 +72,6 @@ public class courseListController {
 		programYearColumn.setCellValueFactory(new PropertyValueFactory<>("programYear"));
 		// program semester column
 		programSemesterColumn.setCellValueFactory(new PropertyValueFactory<>("semester"));
-
 	}
 	
 }

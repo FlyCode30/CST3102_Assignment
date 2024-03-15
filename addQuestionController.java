@@ -1,9 +1,14 @@
 package javaFxControllers;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,13 +53,9 @@ public class addQuestionController {
     
 	
 	
-	public void start (Stage stage) {
-        try {
-            Main.loader("addQuestion.fxml");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+	public void start (Stage stage) throws Exception{
+        Main.loader("addQuestion.fxml");
+	}
 	
 	public void returnToQuestionList(ActionEvent event) {
 		Main.loader("questionList.fxml");
@@ -66,6 +67,7 @@ public class addQuestionController {
 		questionType.setItems(FXCollections.observableArrayList("Multiple Choice", "True/False", "Fill in the Blank", "Short Answer"));
 	}
 	
+	// C:\Users\mikes\Documents\ProAssQuestions
 	@FXML
 	public void addQuestion(ActionEvent event) throws IOException {
 		// add multiply choice question to myQuestions;
@@ -73,6 +75,7 @@ public class addQuestionController {
 			MxQuestion mxQuestion = new MxQuestion(courseList.getValue(), question.getText(), optionA.getText(),
 					answerA.isSelected(), optionB.getText(), answerB.isSelected(), optionC.getText(), answerC.isSelected(), optionD.getText(), answerD.isSelected());
 			Main.getMyQuestions().addQuestion(mxQuestion);
+			writeToFile(mxQuestion.toString(), "C:\\Users\\mikes\\Documents\\ProAssQuestions\\questions.txt");
 			returnToQuestionList(event);
 		} else if (questionType.getValue().equals("Fill in the Blank")) {
 			FillQuestion fillQuestion = new FillQuestion(courseList.getValue(), question.getText(), optionA.getText(), optionB.getText(), optionC.getText(), optionD.getText());
@@ -103,4 +106,26 @@ public class addQuestionController {
 		}
 		return programs;
 	}
+
+	public void writeToFile(String content, String filePath) {
+		LocalDateTime now = LocalDateTime.now();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
+	    String timestamp = now.format(formatter);
+	    String fileName = "Question_" + timestamp + ".txt";
+	    String filePath = 'c:\\Users\\mikes\\Documents\\ProAssQuestions\\' + fileName;
+		    
+	    Task<Void> task = new Task<Void>() {
+	        @Override
+	        protected Void call() throws Exception {
+	            try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
+	                writer.write(content);
+	            } catch (IOException e) {
+	                e.printStackTrace();
+	            }
+	            return null;
+	        }
+	    };
+	    new Thread(task).start();
+	}
+
 }
