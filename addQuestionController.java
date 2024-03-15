@@ -67,33 +67,6 @@ public class addQuestionController {
 		questionType.setItems(FXCollections.observableArrayList("Multiple Choice", "True/False", "Fill in the Blank", "Short Answer"));
 	}
 	
-	// C:\Users\mikes\Documents\ProAssQuestions
-	@FXML
-	public void addQuestion(ActionEvent event) throws IOException {
-		// add multiply choice question to myQuestions;
-		if (questionType.getValue().equals("Multiple Choice")) {
-			MxQuestion mxQuestion = new MxQuestion(courseList.getValue(), question.getText(), optionA.getText(),
-					answerA.isSelected(), optionB.getText(), answerB.isSelected(), optionC.getText(), answerC.isSelected(), optionD.getText(), answerD.isSelected());
-			Main.getMyQuestions().addQuestion(mxQuestion);
-			writeToFile(mxQuestion.toString(), "C:\\Users\\mikes\\Documents\\ProAssQuestions\\questions.txt");
-			returnToQuestionList(event);
-		} else if (questionType.getValue().equals("Fill in the Blank")) {
-			FillQuestion fillQuestion = new FillQuestion(courseList.getValue(), question.getText(), optionA.getText(), optionB.getText(), optionC.getText(), optionD.getText());
-			Main.getMyQuestions().addQuestion(fillQuestion);
-			returnToQuestionList(event);
-		} else if (questionType.getValue().equals("True/False")) {
-			TorFQuestion torfQuestion = new TorFQuestion (courseList.getValue(), question.getText(), optionA.getText(), answerA.isSelected(), optionB.getText(), answerB.isSelected());
-			Main.getMyQuestions().addQuestion(torfQuestion);
-			returnToQuestionList(event);
-		} else if(questionType.getValue().equals("Short Answer")) {
-            ShortQuestion shortAnswerQuestion = new ShortQuestion(courseList.getValue(), question.getText(), optionA.getText());
-            Main.getMyQuestions().addQuestion(shortAnswerQuestion);
-            returnToQuestionList(event);
-        } else if (questionType.getValue() == null) {
-        	returnToQuestionList(event);
-        }
-	}
-	
 	// return a list of unique programs
 	public ObservableList<String> getPrograms() {
 		ObservableList<String> programs = FXCollections.observableArrayList();
@@ -106,13 +79,44 @@ public class addQuestionController {
 		}
 		return programs;
 	}
+	
+	@FXML
+	public void addQuestion(ActionEvent event) throws IOException {
+		// add multiply choice question to myQuestions;
+		if (questionType.getValue().equals("Multiple Choice")) {
+			MxQuestion mxQuestion = new MxQuestion(courseList.getValue(), question.getText(), optionA.getText(),
+					answerA.isSelected(), optionB.getText(), answerB.isSelected(), optionC.getText(), answerC.isSelected(), optionD.getText(), answerD.isSelected());
+			Main.getMyQuestions().addQuestion(mxQuestion);
+			writeToFile(mxQuestion.toString());
+			returnToQuestionList(event);
+		} else if (questionType.getValue().equals("Fill in the Blank")) {
+			FillQuestion fillQuestion = new FillQuestion(courseList.getValue(), question.getText(), optionA.getText(), optionB.getText(), optionC.getText(), optionD.getText());
+			Main.getMyQuestions().addQuestion(fillQuestion);
+			writeToFile(fillQuestion.toString());
+			returnToQuestionList(event);
+		} else if (questionType.getValue().equals("True/False")) {
+			TorFQuestion torfQuestion = new TorFQuestion (courseList.getValue(), question.getText(), optionA.getText(), answerA.isSelected(), optionB.getText(), answerB.isSelected());
+			Main.getMyQuestions().addQuestion(torfQuestion);
+			writeToFile(torfQuestion.toString());
+			returnToQuestionList(event);
+		} else if(questionType.getValue().equals("Short Answer")) {
+            ShortQuestion shortAnswerQuestion = new ShortQuestion(courseList.getValue(), question.getText(), optionA.getText());
+            Main.getMyQuestions().addQuestion(shortAnswerQuestion);
+            writeToFile(shortAnswerQuestion.toString());
+            returnToQuestionList(event);
+        } else if (questionType.getValue() == null) {
+        	returnToQuestionList(event);
+        }
+	}
+	
 
-	public void writeToFile(String content, String filePath) {
+
+	public void writeToFile(String content) {
 		LocalDateTime now = LocalDateTime.now();
 	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
 	    String timestamp = now.format(formatter);
 	    String fileName = "Question_" + timestamp + ".txt";
-	    String filePath = 'c:\\Users\\mikes\\Documents\\ProAssQuestions\\' + fileName;
+	    String filePath = "C:\\Users\\mikes\\Documents\\ProAssQuestions\\" + fileName;
 		    
 	    Task<Void> task = new Task<Void>() {
 	        @Override
