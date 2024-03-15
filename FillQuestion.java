@@ -3,52 +3,64 @@ package testApp;
 public class FillQuestion extends Questions{
 
 	
-	protected String answerA;
-	protected String answerB;
-	protected String answerC;
-	protected String answerD;
+	protected String optionA;
+	protected String optionB;
+	protected String optionC;
+	protected String optionD;
+	
 	
 	// this is the constructor for the FillQuestions class. it consists of answers A, B, C, and D but no options
-	public FillQuestion(String courseInfo, String body, String answerA, String answerB, String answerC,
-			String answerD) {
+	public FillQuestion(String courseInfo, String body, String optionA, String optionB, String optionC,
+			String optionD) {
 		super(courseInfo, body);
-		this.answerA = answerA;
-		this.answerB = answerB;
-		this.answerC = answerC;
-		this.answerD = answerD;
+		this.optionA = optionA;
+		this.optionB = optionB;
+		this.optionC = optionC;
+		this.optionD = optionD;
 	}
 
-	public String getAnswerA() {
-		return answerA;
+	// this method is used to get option A
+	public String getOptionA() {
+		return optionA;
 	}
 	
-	public void setAnswerA(String answerA) {
-		this.answerA = answerA;
+	// this method is used to set option A
+	public void setOptionA(String optionA) {
+		this.optionA = optionA;
 	}
 	
-	public String getAnswerB() {
-		return answerB;
+	// this method is used to get option B
+	public String getOptionB() {
+		return optionB;
 	}
 	
-	public void setAnswerB(String answerB) {
-		this.answerB = answerB;
+	// this method is used to set option B
+	public void setOptionB(String optionB) {
+		this.optionB = optionB;
 	}
 	
-	
-	public String getAnswerC() {
-		return answerC;
+	// this method is used to get option C
+	public String getOptionC() {
+		return optionC;
 	}
 	
-	public void setAnswerC(String answerC) {
-		this.answerC = answerC;
+	// this method is used to set option C
+	public void setOptionC(String optionC) {
+		this.optionC = optionC;
 	}
 	
-	
-	public String getAnswerD() {
-		return answerD;
+	// this method is used to get option D
+	public String getOptionD() {
+		return optionD;
 	}
 	
-	public void setAnswerD(String answerD) {
-		this.answerD = answerD;
+	// this method is used to set option D
+	public void setOptionD(String optionD) {
+		this.optionD = optionD;
+	}
+	
+	// this method is used to return a string representation of the object
+	public String toString() {
+		return super.toString() + "   " + getOptionA() + "\n   " + getOptionB() + "\n   " + getOptionC() + "\n   " + getOptionD();
 	}
 }

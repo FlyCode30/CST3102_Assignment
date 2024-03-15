@@ -51,4 +51,24 @@ public class TorFQuestion extends Questions{
         }
 	}
 	
+	// this method returns which answer is true
+	public String getAnswer() {
+		
+		String answer = "";
+		
+		if (answerA == true) {
+			answer = "true";
+		} else if (answerB == true) {
+			answer = "false";
+		} else {
+			answer = "error: please check your question and answer options.";
+		}
+		return answer;
+	}
+		
+	
+	public String toString() {
+		return "Q: " + super.toString() + "   A: " + getAnswer();
+	}
+	
 }
